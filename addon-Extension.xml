@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="Extension" title="Extra Code Events" version_string="1.0" version_id="0" url="" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+<addon addon_id="Extension" title="Extra Code Events" version_string="1.0.1" version_id="0" url="" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
@@ -17,6 +17,18 @@
 	<li><code><em>string</em> $controllerName</code> - the name of the final controller that was invoked.</li>
 	<li><code><em>string</em> $action</code> - the name of the final action that was invoked.</li>
 </ol>]]></event>
+    <event event_id="load_class_autoloader"><![CDATA[<p>Called when instantiating an autoloader. This event can be used to extend the class that will be instantiated dynamically.</p>
+
+<p>Callback signature:</p>
+<blockquote><code>$class, <em>array</em> &$extend</code></blockquote>
+
+<p>Arguments:</p>
+<ol>
+	<li><code><em>string</em> $class</code> - the name of the class to be created</li>
+	<li><code><em>array</em> &$extend</code> - a modifiable list of classes that wish to extend the class. See below.</li>
+</ol>
+
+<p>To use this event properly, determine if the class is one you want to extend. If so, add a new entry to $extend with the name of the class that should extend it. This class MUST be defined as follows:</p>]]></event>
     <event event_id="load_class_controller_helper"><![CDATA[<p>Called when instantiating a controller helper. This event can be used to extend the class that will be instantiated dynamically.</p>
 
 <p>Callback signature:</p>

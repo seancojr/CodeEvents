@@ -4,7 +4,14 @@ class Extension_Autoloader extends XenForo_Autoloader
 {
 	public static function getExtendedInstance()
 	{
-		$extendedInstance = new self();
+		$createClass = XenForo_Application::resolveDynamicClass('Extension_Autoloader', 'autoloader');
+
+		if (!$createClass)
+		{
+			throw new XenForo_Exception("Invalid autoloader '$createClass' specified");
+		}
+
+		$extendedInstance = new $createClass();
 		$extendedInstance->_rootDir =  XenForo_Autoloader::getInstance()->_rootDir;
 		$extendedInstance->_setup = XenForo_Autoloader::getInstance()->_setup;
 
