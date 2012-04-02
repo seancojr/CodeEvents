@@ -27,6 +27,11 @@ class Extension_Autoloader extends XenForo_Autoloader
 	*/
 	public function autoload($class)
 	{
+		if (class_exists($class, false) || interface_exists($class, false))
+		{
+			return true;
+		}
+
 		if(strpos($class, 'Ext_Controller_')===0)
 		{
 			$proxyClass = 'XFCP_' . $class;
