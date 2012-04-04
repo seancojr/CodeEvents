@@ -1,6 +1,6 @@
 <?php
 
-class Extension_Model_NewsFeed extends XFCP_Extension_Model_NewsFeed
+class CodeEvents_Model_NewsFeed extends XFCP_CodeEvents_Model_NewsFeed
 {
 	protected function _prepareNewsFeedItem(array $item, $handlerClassName, array $viewingUser)
 	{

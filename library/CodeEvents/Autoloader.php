@@ -1,10 +1,10 @@
 <?php
 
-class Extension_Autoloader extends XenForo_Autoloader
+class CodeEvents_Autoloader extends XenForo_Autoloader
 {
 	public static function getExtendedInstance()
 	{
-		$createClass = XenForo_Application::resolveDynamicClass('Extension_Autoloader', 'autoloader');
+		$createClass = XenForo_Application::resolveDynamicClass('CodeEvents_Autoloader', 'autoloader');
 
 		if (!$createClass)
 		{
@@ -35,11 +35,11 @@ class Extension_Autoloader extends XenForo_Autoloader
 		if(strpos($class, 'Ext_Controller_')===0)
 		{
 			$proxyClass = 'XFCP_' . $class;
-			$filename = XenForo_Autoloader::getInstance()->autoloaderClassToFile('Extension_Controller');
+			$filename = XenForo_Autoloader::getInstance()->autoloaderClassToFile('CodeEvents_Controller');
 
 			$classCode = file_get_contents($filename);
 			$classCode = substr($classCode,5); // removing '<?php' from the beginning
-			$searchString = 'class Extension_Controller extends XenForo_ControllerPublic_Abstract';
+			$searchString = 'class CodeEvents_Controller extends XenForo_ControllerPublic_Abstract';
 			$replaceString = 'class ' . $class . ' extends ' . $proxyClass;
 			$classCode = str_replace($searchString, $replaceString, $classCode); // replacing declaration
 

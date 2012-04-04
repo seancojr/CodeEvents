@@ -3,16 +3,16 @@
 /**
  * This class will be used as a string in eval() to extend all public and admin conrollers.
  * String '<?php' will be removed from the beginning.
- * Declaration 'class Extension_Controller extends XenForo_ControllerPublic_Abstract'
+ * Declaration 'class CodeEvents_Controller extends XenForo_ControllerPublic_Abstract'
  * will be replaced by declarations of type
- * 'class Extension_Controller%Type%_%Name% extends XFCP_Extension_Controller%Type%_%Name%'.
+ * 'class CodeEvents_Controller%Type%_%Name% extends XFCP_CodeEvents_Controller%Type%_%Name%'.
  * Here %Type% is Public or Admin amd %Name% is the the name of extended controller.
  *
  * It is declared only for convenient use in IDE.
  * What is really needed, its body as a string, argument of eval()
  */
 
-class Extension_Controller extends XenForo_ControllerPublic_Abstract
+class CodeEvents_Controller extends XenForo_ControllerPublic_Abstract
 {
 	protected function _postDispatch($controllerResponse, $controllerName, $action)
 	{

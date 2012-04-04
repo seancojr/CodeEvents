@@ -1,13 +1,13 @@
 <?php
 
 
-class Extension_EventListener_Extend
+class CodeEvents_EventListener_Extend
 {
 	public static function loadClassModel($class, array &$extend)
 	{
 		if ($class == 'XenForo_Model_NewsFeed')
 		{
-			$extend[] = 'Extension_Model_NewsFeed';
+			$extend[] = 'CodeEvents_Model_NewsFeed';
 		}
 	}
 
